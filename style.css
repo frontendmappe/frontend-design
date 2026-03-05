@@ -7,3 +7,22 @@ body {
 .breakout {
   background: #a8fad5;
 }
+
+body {
+  display: grid;
+  grid-template-columns: [full-start] 1fr [content] minmax(0, 600) 1fr [full-end];
+}
+/* full start laver en fulle bleed i starten hvor minmax og værdien laver læsellngden i midten af vores site og full end laver et full bleed i enden. 
+man kan navngive en [middel] så man kan sikert centere noget i midten af sit site. */
+
+header,
+footer,
+main,
+section {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: full;
+  > :not(&) {
+    grid-column: content;
+  }
+}
